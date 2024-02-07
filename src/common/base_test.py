@@ -49,8 +49,9 @@ class BaseTest(unittest.TestCase):
         if CHROME_HEADLESS:
             options.add_argument('--headless=new')
         options.add_argument('--disable-gpu')
+        options.add_argument('--disable-site-isolation-trials')
         options.add_argument(f'--user-data-dir={PROFILE_DIR}')
-        options.add_argument('--disable-features=ChromeWhatsNewUI')
+        options.add_argument('--disable-features=ChromeWhatsNewUI,IsolateOrigins,site-per-process"')
         options.add_argument(f'--privacy-sandbox-enrollment-overrides={",".join(PRIVACY_SANDBOX_ENROLLMENT_OVERRIDES)}')
         return options
 
